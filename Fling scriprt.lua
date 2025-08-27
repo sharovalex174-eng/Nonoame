@@ -1,20 +1,11 @@
---[[
-    KILASIK's Multi-Target Fling Exploit
-    Based on the working fling mechanism from zqyDSUWX
-    Features:
-    - Select multiple targets
-    - Continuous flinging until stopped
-    - Preserves player mobility (no teleporting to targets)
-    - Flings targets very far
-    - Compatible with JJSploit, Synapse X, etc.
-]]
+
 -- Services
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local Player = Players.LocalPlayer
 -- GUI Setup
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "KilasikFlingGUI"
+ScreenGui.Name = "флинг панель"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = game:GetService("CoreGui")
 -- Main Frame
@@ -36,7 +27,7 @@ TitleBar.Parent = MainFrame
 local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, -30, 1, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "KILASIK'S MULTI-FLING"
+Title.Text = "флинг панель"
 Title.TextColor3 = Color3.fromRGB(255, 80, 80)
 Title.Font = Enum.Font.SourceSansBold
 Title.TextSize = 18
@@ -85,7 +76,7 @@ StartButton.Position = UDim2.new(0, 10, 0, 280)
 StartButton.Size = UDim2.new(0.5, -15, 0, 40)
 StartButton.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
 StartButton.BorderSizePixel = 0
-StartButton.Text = "START FLING"
+StartButton.Text = "начать флинговать"
 StartButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 StartButton.Font = Enum.Font.SourceSansBold
 StartButton.TextSize = 18
@@ -96,7 +87,7 @@ StopButton.Position = UDim2.new(0.5, 5, 0, 280)
 StopButton.Size = UDim2.new(0.5, -15, 0, 40)
 StopButton.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
 StopButton.BorderSizePixel = 0
-StopButton.Text = "STOP FLING"
+StopButton.Text = "остановить флинг"
 StopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 StopButton.Font = Enum.Font.SourceSansBold
 StopButton.TextSize = 18
@@ -107,7 +98,7 @@ SelectAllButton.Position = UDim2.new(0, 10, 0, 330)
 SelectAllButton.Size = UDim2.new(0.5, -15, 0, 30)
 SelectAllButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 SelectAllButton.BorderSizePixel = 0
-SelectAllButton.Text = "SELECT ALL"
+SelectAllButton.Text = "выбрать всех"
 SelectAllButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 SelectAllButton.Font = Enum.Font.SourceSans
 SelectAllButton.TextSize = 14
@@ -117,7 +108,7 @@ DeselectAllButton.Position = UDim2.new(0.5, 5, 0, 330)
 DeselectAllButton.Size = UDim2.new(0.5, -15, 0, 30)
 DeselectAllButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 DeselectAllButton.BorderSizePixel = 0
-DeselectAllButton.Text = "DESELECT ALL"
+DeselectAllButton.Text = "убрать всех"
 DeselectAllButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 DeselectAllButton.Font = Enum.Font.SourceSans
 DeselectAllButton.TextSize = 14
@@ -231,10 +222,10 @@ end
 local function UpdateStatus()
     local count = CountSelectedTargets()
     if FlingActive then
-        StatusLabel.Text = "Flinging " .. count .. " target(s)"
+        StatusLabel.Text = "флингуются " .. count .. " целей"
         StatusLabel.TextColor3 = Color3.fromRGB(255, 80, 80)
     else
-        StatusLabel.Text = count .. " target(s) selected" 
+        StatusLabel.Text = count .. " целей выбрано" 
         StatusLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     end
 end
