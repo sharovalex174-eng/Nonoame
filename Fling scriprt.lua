@@ -5,7 +5,7 @@ local RunService = game:GetService("RunService")
 local Player = Players.LocalPlayer
 -- GUI Setup
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "флинг панель"
+ScreenGui.Name = "KilasikFlingGUI"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = game:GetService("CoreGui")
 -- Main Frame
